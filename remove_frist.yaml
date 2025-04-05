@@ -1,0 +1,8 @@
+---
+- hosts: web_server
+  become: yes
+  tasks: 
+    - name: Ensure Nginx is Remove
+      apt: name=nginx state=absent
+    - name: Ensure  Nigix service is stop 
+      service: name=nginx state=stopped enabled=no 

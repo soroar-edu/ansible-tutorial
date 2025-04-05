@@ -1,0 +1,19 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+  - name: install updates (Redhat)
+    yum:
+      update_only: yes
+      update_cache: yes
+    when: ansible_distribution == "RedHat" 
+  - name: install update (Redhat)
+    apt:
+      upgrade: dist
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+
+- hosts: web_server
+  become: true
+
