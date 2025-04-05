@@ -1,0 +1,9 @@
+---
+- name: copy file from host to remote 
+  hosts: web_server
+  become: yes
+  tasks: 
+  - name: copy file 
+    copy:
+      src: /home/ubuntu/test_dir/testfile.txt
+      dest: /home/ubuntu/test
